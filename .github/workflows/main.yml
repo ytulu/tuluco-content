@@ -1,0 +1,24 @@
+```yaml
+# main.yaml
+
+name: CI
+on:
+  push:
+    branches: [ master ]
+    paths-ignore:
+      - '.github/workflows/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      # Dispatch an event to the consumer repo
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1.1.1
+        with:
+        token: ${{ secrets.DISPATCH_HOOK_TOKEN }}
+        repository: ytulu/tuluco
+        event-type: merge-content
+        client-payload: '{"message": "New blog posted!"}'
