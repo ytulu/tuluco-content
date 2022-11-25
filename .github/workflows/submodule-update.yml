@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: run action
         id: run_action
-        uses: PaulRitter/github-action-create-commit-parent-submodule@v1
+        uses: PaulRitter/github-action-create-commit-parent-submodule@v1.0
         with:
           github_token: ${{ secrets.RELEASE_HUB_SECRET }}
           parent_repository: ytulu/tuluco
