@@ -17,7 +17,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1.1.1
         with:
-        token: ${{ secrets.DISPATCH_HOOK_TOKEN }}
-        repository: ytulu/tuluco
-        event-type: merge-content
-        client-payload: '{"message": "New blog posted!"}'
+          token: ${{ secrets.DISPATCH_HOOK_TOKEN }}
+          repository: ytulu/tuluco
+          event-type: merge-content
+          client-payload: '{"message": "New blog posted!"}'
